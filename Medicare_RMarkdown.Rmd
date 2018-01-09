@@ -1,9 +1,8 @@
 ---
 title: "Medicare Provider Summary for the Top 100 Diagnosis-Related Groups (DRG)"
 author: "Connor Duplessis"
-date: "12/9/2017"
-output:
-  rmarkdown::github_document
+date: "12/6/2017"
+output: rmarkdown::github_document
 ---
 ## Introduction
 
