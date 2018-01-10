@@ -1,7 +1,7 @@
 ---
 title: "Variation in Medicare Claims"
 author: "Connor Duplessis"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -39,14 +39,15 @@ DRGVariation <- IPPS %>%
   arrange(desc(SD)) %>%
   select(`DRG Definition`, `Mean`, `SD`, `IQR`, `Median`)
 
+#10 highest standard deviation#
 kable(DRGVariation[1:10,], "html") %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), font_size = 11) %>%
   scroll_box(width = "100%", height = "200px")  
 
 
-
+#10 lowest standard deviation#
 kable(arrange(tail(DRGVariation, n = 10),SD),"html") %>%
-kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), font_size = 11) %>%
   scroll_box(width = "100%", height = "200px")  
 ```  
 
@@ -66,14 +67,14 @@ Variation_by_State <- IPPS %>%
   arrange(desc(SD)) %>%
   select(`DRG Definition`, `Provider State`, `Mean`, `SD`, `IQR`, `Median`, `Total Discharges`)
 
-#Highest standard deviation#
+#10 highest standard deviation#
 kable(Variation_by_State[1:10,], "html") %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), font_size = 11) %>%
   scroll_box(width = "100%", height = "200px")  
 
-#Lowest standard deviation#
+#10 lowest standard deviation#
 kable(arrange(tail(Variation_by_State, n = 10),SD),"html") %>%
-kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), font_size = 11) %>%
   scroll_box(width = "100%", height = "200px")  
 ```
 In this subset of the data we see even more variability. Respitory System Diagnosis (DRG 207) in California comes in with the highest standard deviation of $132,991. There are also standard deviations of zero and NA. These observations represent State's that only had one facility submit claims for that DRG. Let's coerce all the NA's to zeros. 
@@ -117,7 +118,7 @@ Variation_by_State2 <- Variation_by_State %>%
   arrange(desc(CV))
 
 kable(Variation_by_State2[1:10,],"html") %>%
-kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), font_size = 11) %>%
   scroll_box(width = "100%", height = "200px")  
 ```
 
